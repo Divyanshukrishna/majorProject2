@@ -8,8 +8,8 @@ const Navbar = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #39bdee;
-  color: #fff;
+  background-color: #fff;
+  color: black;
 `;
 
 const Logo = styled.div`
@@ -20,6 +20,7 @@ const Logo = styled.div`
 const CenterBlock = styled.div`
   display: flex;
   gap: 15px;
+  color: black;
 `;
 
 const NavButton = styled.button`
@@ -29,9 +30,12 @@ const NavButton = styled.button`
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
+  color: black;
+  font-size: 1.1rem;
+  padding-right: 60px;
 
   &:hover {
-    background-color: #555;
+    background-color: #a30000;
   }
 `;
 
@@ -63,6 +67,10 @@ const LeftSection = styled.div`
   justify-content: center;
   align-items: flex-start;
   padding: 20px;
+  margin-top: 10px;
+  margin-left: 100px;
+  font-size: 2rem;
+
 `;
 
 // Right section (images)
@@ -72,6 +80,7 @@ const RightSection = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
+  padding-top: 90px;
 `;
 
 const HomePage = () => {
@@ -97,7 +106,9 @@ const HomePage = () => {
       <MainContainer>
         {/* Left section with text */}
         <LeftSection>
-          <h2>Welcome to Our Website</h2>
+          <h1>Automatic License</h1>
+          <h1>Plate Recognition</h1>
+          <h1>Made Easy</h1>
           <p>
             Explore our services and learn more about what we offer. We are
             committed to providing the best experience for our users.
