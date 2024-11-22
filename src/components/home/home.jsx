@@ -2,23 +2,20 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-// Navbar container
 const Navbar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #333;
+  background-color: #39bdee;
   color: #fff;
 `;
 
-// Logo on the left
 const Logo = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
 `;
 
-// Center block with buttons
 const CenterBlock = styled.div`
   display: flex;
   gap: 15px;
@@ -37,7 +34,6 @@ const NavButton = styled.button`
   }
 `;
 
-// Login button on the right
 const LoginButton = styled.button`
   padding: 10px 20px;
   background-color: #ff5722;
@@ -56,22 +52,20 @@ const HomePage = () => {
 
   return (
     <Navbar>
-      {/* Logo on the left */}
       <Logo>
         <img src="/vite.svg" alt="" />
       </Logo>
 
-      {/* Center block with navigation buttons */}
       <CenterBlock>
         <NavButton>About</NavButton>
         <NavButton>Contact</NavButton>
         <NavButton>Help</NavButton>
       </CenterBlock>
 
-      {/* Login button on the right */}
       <LoginButton onClick={() => navigate('/login')}>Login</LoginButton>
     </Navbar>
   );
 };
 
 export default HomePage;
+
