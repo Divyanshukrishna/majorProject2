@@ -1,78 +1,77 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
-const Home = () => {
+// Navbar container
+const Navbar = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+`;
+
+// Logo on the left
+const Logo = styled.div`
+  font-size: 1.5rem;
+  font-weight: bold;
+`;
+
+// Center block with buttons
+const CenterBlock = styled.div`
+  display: flex;
+  gap: 15px;
+`;
+
+const NavButton = styled.button`
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #555;
+  }
+`;
+
+// Login button on the right
+const LoginButton = styled.button`
+  padding: 10px 20px;
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e64a19;
+  }
+`;
+
+const HomePage = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <nav style={styles.navbar}>
-        {/* Left block - Logo */}
-        <div style={styles.logo}>
-          <h2>Logo</h2>
-        </div>
+    <Navbar>
+      {/* Logo on the left */}
+      <Logo>
+        <img src="/vite.svg" alt="" />
+      </Logo>
 
-        {/* Center block - Navigation buttons */}
-        <div style={styles.centerBlock}>
-          <button style={styles.navButton}>About</button>
-          <button style={styles.navButton}>Contact</button>
-          <button style={styles.navButton}>Help</button>
-        </div>
+      {/* Center block with navigation buttons */}
+      <CenterBlock>
+        <NavButton>About</NavButton>
+        <NavButton>Contact</NavButton>
+        <NavButton>Help</NavButton>
+      </CenterBlock>
 
-        {/* Right block - Login button */}
-        <div style={styles.rightBlock}>
-          <button 
-            style={styles.loginButton} 
-            onClick={() => navigate('/login')}
-          >
-            Login
-          </button>
-        </div>
-      </nav>
-    </div>
+      {/* Login button on the right */}
+      <LoginButton onClick={() => navigate('/login')}>Login</LoginButton>
+    </Navbar>
   );
 };
 
-// Inline styles
-const styles = {
-  navbar: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '10px 20px',
-    backgroundColor: '#333',
-    color: '#fff',
-  },
-  logo: {
-    flex: '1',
-    textAlign: 'left',
-  },
-  centerBlock: {
-    flex: '1',
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '10px',
-  },
-  navButton: {
-    padding: '8px 12px',
-    backgroundColor: '#444',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-  },
-  rightBlock: {
-    flex: '1',
-    textAlign: 'right',
-  },
-  loginButton: {
-    padding: '8px 16px',
-    backgroundColor: '#ff5722',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-  },
-};
-
-export default Home;
+export default HomePage;
