@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import SecondPage from '../secondPage/secondPage';
+
 
 // Navbar styles
 const Navbar = styled.nav`
@@ -32,7 +34,8 @@ const NavButton = styled.button`
   cursor: pointer;
   color: black;
   font-size: 1.1rem;
-  padding-right: 60px;
+  padding-right: 50px;
+  text-align: center;
 
   &:hover {
     background-color: #a30000;
@@ -73,7 +76,6 @@ const LeftSection = styled.div`
 
 `;
 
-// Right section (images)
 const RightSection = styled.div`
   flex: 1;
   display: flex;
@@ -83,45 +85,54 @@ const RightSection = styled.div`
   padding-top: 90px;
 `;
 
+const Image = styled.img`
+  max-width: 100%;
+  max-height: 400px;  /* Adjust the max-height to control the size of the image */
+  object-fit: contain;  /* Ensures the image maintains its aspect ratio */
+`;
+
 const HomePage = () => {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+  
+    return (
+      <>
+        <Navbar>
+          <Logo>
+            <img src="/vite.svg" alt="Logo" />
+          </Logo>
+  
+          <CenterBlock>
+            <NavButton>About</NavButton>
+            <NavButton>Contact</NavButton>
+            <NavButton>Help</NavButton>
+          </CenterBlock>
+  
+          <LoginButton onClick={() => navigate('/login')}>Login</LoginButton>
+        </Navbar>
+  
+        {/* Main content layout */}
+        <MainContainer>
+          {/* Left section with text */}
+          <LeftSection>
+            <h1>Automatic License</h1>
+            <h1>Plate Recognition</h1>
+            <h1>Made Easy</h1>
+            <p>
+              Explore our services and learn more about what we offer. We are
+              committed to providing the best experience for our users.
+            </p>
+          </LeftSection>
+  
+          {/* Right section with image */}
+          <RightSection>
+            <Image src="/photo1.jpg" alt="Example Image" />
+          </RightSection>
+        </MainContainer>
+  
+        {/* Include SecondPage component here */}
+        <SecondPage />
+      </>
+    );
+  };
 
-  return (
-    <>
-      <Navbar>
-        <Logo>
-          <img src="/vite.svg" alt="Logo" />
-        </Logo>
-
-        <CenterBlock>
-          <NavButton>About</NavButton>
-          <NavButton>Contact</NavButton>
-          <NavButton>Help</NavButton>
-        </CenterBlock>
-
-        <LoginButton onClick={() => navigate('/login')}>Login</LoginButton>
-      </Navbar>
-
-      {/* Main content layout */}
-      <MainContainer>
-        {/* Left section with text */}
-        <LeftSection>
-          <h1>Automatic License</h1>
-          <h1>Plate Recognition</h1>
-          <h1>Made Easy</h1>
-          <p>
-            Explore our services and learn more about what we offer. We are
-            committed to providing the best experience for our users.
-          </p>
-        </LeftSection>
-
-        {/* Right section with image */}
-        <RightSection>
-          <img src="https://via.placeholder.com/400" alt="Placeholder" />
-        </RightSection>
-      </MainContainer>
-    </>
-  );
-};
-
-export default HomePage;
+export default HomePage
