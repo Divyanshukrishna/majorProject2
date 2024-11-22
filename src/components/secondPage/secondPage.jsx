@@ -7,14 +7,14 @@ const PageContainer = styled.div`
   padding: 20px;
 `;
 
-
 const LeftSection = styled.div`
   flex: 1;
   padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-right: 2px solid #ccc;
+  /* Remove border-right */
+  /* border-right: 2px solid #ccc; */
 `;
 
 const RightSection = styled.div`
@@ -50,7 +50,6 @@ const SecondPage = () => {
           allowFullScreen
         ></iframe>
       </LeftSection>
-
 
       <RightSection>
         <Heading>Welcome to the Second Page</Heading>

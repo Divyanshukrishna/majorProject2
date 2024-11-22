@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import SecondPage from '../secondPage/secondPage';
 
-
 // Navbar styles
 const Navbar = styled.nav`
   display: flex;
@@ -55,14 +54,19 @@ const LoginButton = styled.button`
   }
 `;
 
-// Main container for the content below the navbar
+// Main container for left and right sections
 const MainContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  height: 100vh; 
+  background-image: url('/backgroundImage.jpg');  
+  background-size: cover;  
+  background-position: center;  
+  background-attachment: fixed;  
 `;
 
-// Left section (text content)
+// Left section styling
 const LeftSection = styled.div`
   flex: 1;
   display: flex;
@@ -70,12 +74,16 @@ const LeftSection = styled.div`
   justify-content: center;
   align-items: flex-start;
   padding: 20px;
-  margin-top: 10px;
+  margin-top:5px;
   margin-left: 100px;
   font-size: 2rem;
-
+  color: black;  
+  p{
+    margin-top :40px ;
+  }
 `;
 
+// Right section for the image
 const RightSection = styled.div`
   flex: 1;
   display: flex;
@@ -85,54 +93,51 @@ const RightSection = styled.div`
   padding-top: 90px;
 `;
 
+// Image inside right section
 const Image = styled.img`
   max-width: 100%;
-  max-height: 400px;  /* Adjust the max-height to control the size of the image */
-  object-fit: contain;  /* Ensures the image maintains its aspect ratio */
+  max-height: 400px;
+  object-fit: contain;
 `;
 
 const HomePage = () => {
-    const navigate = useNavigate();
-  
-    return (
-      <>
-        <Navbar>
-          <Logo>
-            <img src="/vite.svg" alt="Logo" />
-          </Logo>
-  
-          <CenterBlock>
-            <NavButton>About</NavButton>
-            <NavButton>Contact</NavButton>
-            <NavButton>Help</NavButton>
-          </CenterBlock>
-  
-          <LoginButton onClick={() => navigate('/login')}>Login</LoginButton>
-        </Navbar>
-  
-        {/* Main content layout */}
-        <MainContainer>
-          {/* Left section with text */}
-          <LeftSection>
-            <h1>Automatic License</h1>
-            <h1>Plate Recognition</h1>
-            <h1>Made Easy</h1>
-            <p>
-              Explore our services and learn more about what we offer. We are
-              committed to providing the best experience for our users.
-            </p>
-          </LeftSection>
-  
-          {/* Right section with image */}
-          <RightSection>
-            <Image src="/photo1.jpg" alt="Example Image" />
-          </RightSection>
-        </MainContainer>
-  
-        {/* Include SecondPage component here */}
-        <SecondPage />
-      </>
-    );
-  };
+  const navigate = useNavigate();
 
-export default HomePage
+  return (
+    <>
+      <Navbar>
+        <Logo>
+          <img src="/vite.svg" alt="Logo" />
+        </Logo>
+
+        <CenterBlock>
+          <NavButton>About</NavButton>
+          <NavButton>Contact</NavButton>
+          <NavButton>Help</NavButton>
+        </CenterBlock>
+
+        <LoginButton onClick={() => navigate('/login')}>Login</LoginButton>
+      </Navbar>
+
+      <MainContainer>
+        <LeftSection>
+          <h1>Automatic License</h1>
+          <h1>Plate Recognition</h1>
+          <h1>Made Easy</h1>
+          <p>
+            Explore our services and learn more about what we offer. We are
+            committed to providing the best experience for our users.
+          </p>
+        </LeftSection>
+
+        <RightSection>
+          <Image src="/photo1.jpg" alt="Example Image" />
+        </RightSection>
+      </MainContainer>
+
+      <SecondPage />
+    </>
+  );
+};
+
+export default HomePage;
